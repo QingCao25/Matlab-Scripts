@@ -1,5 +1,5 @@
 % Read CSV file
-data = readtable('Good_HYRL.csv');
+data = readtable('Perfect_Hover_Test_20250622_152626.csv');
 
 % Extract actual and desired positions
 actual_pos = [data.pos_x, data.pos_y, data.pos_z];
@@ -27,6 +27,13 @@ ylabel(ax, 'Y (m)');
 zlabel(ax, 'Z (m)');
 title(ax, 'Quadcopter Flight Animation: Actual vs Desired');
 view(ax, 3);
+
+% ✅ True 3D sphere at the origin (not warped)
+[rs, cs, zs] = sphere(30); % Resolution of the sphere
+radius = 0.75;            % 0.75 m diameter / 2
+surf(ax, radius * rs, radius * cs, radius * zs, ...
+     'FaceAlpha', 0.3, 'EdgeColor', 'none', 'FaceColor', 'g', ...
+     'DisplayName', 'Fixed Sphere at Origin');
 
 % Initialize plots
 h1 = plot3(ax, actual_pos_fine(1,1), actual_pos_fine(1,2), actual_pos_fine(1,3), 'bo', 'MarkerSize', 8, 'DisplayName', 'Actual Position');
