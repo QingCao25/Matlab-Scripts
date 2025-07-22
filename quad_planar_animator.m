@@ -1,5 +1,5 @@
 % Read CSV file
-data = readtable('Perfect_Hover_Test_20250622_152626.csv');
+data = readtable('Hybrid_Final_V4_20250714_162333.csv');
 
 % Extract actual and desired positions
 actual_pos = [data.pos_x, data.pos_y, data.pos_z];
@@ -20,6 +20,7 @@ desired_pos_fine = interp1(time, desired_pos, t_fine, 'linear');
 % Initialize figure and axes
 fig = figure;
 ax = axes('Parent', fig);
+axis(ax, [-2 2 -2 2 -2 2]);
 hold(ax, 'on');
 grid(ax, 'on');
 xlabel(ax, 'X (m)');
