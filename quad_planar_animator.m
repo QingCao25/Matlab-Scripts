@@ -1,5 +1,5 @@
 % Read CSV file
-data = readtable('Hybrid_Final_V4_20250714_162333.csv');
+data = readtable('Final_Data/Circle_Final.csv');
 
 % Extract actual and desired positions
 actual_pos = [data.pos_x, data.pos_y, data.pos_z];
